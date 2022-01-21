@@ -1,0 +1,39 @@
+import java.util.*;
+public class Rotate_2X2_matrix {
+    public static void main(String[] args) {
+        int[][] matrix = {{1,2},{3,4}};
+        int temp=0;
+        int n=2;
+        
+        for(int i=0;i<matrix.length;i++){
+            for(int j=i;j<matrix[0].length;j++){
+                temp=matrix[i][j];
+                matrix[i][j]=matrix[j][i];
+                matrix[j][i]=temp;
+            }
+        }
+        temp=0;
+        for(int i=0;i<n;i++){
+            int j=0;
+            int last=n-1;
+            while(j<=last){
+                temp=matrix[j][i];
+                matrix[j][i]=matrix[last][i];
+                matrix[last][i]=temp;
+                last--;
+                j++;
+            }
+        }
+
+        System.out.println("after rotation");
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(matrix[i][j]+" ");
+            }
+            System.out.println();
+            
+        }
+
+        
+    }
+}
